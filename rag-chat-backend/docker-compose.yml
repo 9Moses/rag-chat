@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: .
+    container_name: rag-chat-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./app:/app/app  # live-reload source during development
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--reload-dir", "app", "--reload-exclude", "*.pyc", "--reload-exclude", "__pycache__/*"]
+    restart: unless-stopped
+
+# Note: Postgres + pgvector and file storage are hosted on Supabase's free
+# tier (see README), so no local `db` service is needed. If you later move
+# off Supabase, add a `postgres` service here running `ankane/pgvector`.

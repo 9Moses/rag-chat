@@ -1,0 +1,28 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+fastapi==0.115.0
+uvicorn[standard]==0.32.0
+pydantic==2.9.2
+pydantic-settings==2.5.2
+email-validator==2.2.0
+python-multipart==0.0.12
+python-dotenv==1.0.1
+
+# Supabase (db + storage)
+supabase==2.9.1
+
+# PDF parsing
+pymupdf==1.24.11
+
+# Embeddings (local, free)
+sentence-transformers==3.2.1
+torch==2.4.1+cpu
+
+# LLM providers
+groq==0.11.0
+openai==1.51.2
+
+# Utils
+httpx==0.27.2
+tenacity==9.0.0
+tiktoken==0.8.0
